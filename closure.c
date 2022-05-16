@@ -29,7 +29,7 @@ void *closure_create(void *self, ClosureParam *param, size_t num)
 	Closure *block = mmap(NULL, size, PROT_WRITE | PROT_READ, MAP_PRIVATE | MAP_ANONYMOUS, 0, 0);
 
 	for (size_t i = 0; i < num; i++) {
-		if (param[i].arg > 6)
+		if (param[i].arg >= 6)
 			abort(); // TODO
 
 		block[i].opcode_0 = 0xb848;
